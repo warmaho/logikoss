@@ -15,6 +15,10 @@ class PagesController extends Controller
      *
      * @return \Illuminate\View\View
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(Request $request)
     {
         $keyword = $request->get('search');
@@ -55,7 +59,7 @@ class PagesController extends Controller
 			'content' => 'required'
 		]);
         $requestData = $request->all();
-        
+
         Page::create($requestData);
 
         return redirect('admin/pages')->with('flash_message', 'Page added!');
@@ -104,7 +108,7 @@ class PagesController extends Controller
 			'content' => 'required'
 		]);
         $requestData = $request->all();
-        
+
         $page = Page::findOrFail($id);
         $page->update($requestData);
 
