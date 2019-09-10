@@ -76,10 +76,6 @@
 
         <hr/>
 
-        <div class="container">
-            &copy; {{ date('Y') }}. Created by <a href="http://www.appzcoder.com">AppzCoder</a>
-            <br/>
-        </div>
 
     </div>
 
